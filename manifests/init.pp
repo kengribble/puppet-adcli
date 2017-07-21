@@ -45,14 +45,16 @@ class adcli (
   $ad_domain               = $adcli::params::ad_domain,
   $ad_join_username        = $adcli::params::ad_join_username,
   $ad_join_password        = $adcli::params::ad_join_password,
-  $ad_join_ou              = $adcli::params::ad_join_ou,
+  $ad_join_realm           = $adcli::params::ad_join_realm,
+  $ad_join_host_fqdn       = $adcli::params::ad_join_host_fqdn,
 ) inherits adcli::params {
 
   validate_string(
     $ad_domain,
     $ad_join_username,
     $ad_join_password,
-    $ad_join_ou
+    $ad_join_realm,
+    $ad_join_host_fqdn,
   )
 
   anchor { 'adcli::begin': } ->
